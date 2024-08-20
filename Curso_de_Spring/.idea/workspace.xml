@@ -5,25 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9bdb8971-5276-41df-b9e3-6bb776d6e626" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Curso_de_Spring.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/juampa.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Clase03/SpringDataJpa/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Clase03/SpringDataJpa/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Clase03/SpringDataJpa/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Clase03/SpringDataJpa/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Clase03/SpringDataJpa/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Clase03/SpringDataJpa/src/main/java/com/example/SpringDataJpa/Coche.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Clase03/SpringDataJpa/src/main/java/com/example/SpringDataJpa/CocheRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Clase03/SpringDataJpa/src/main/java/com/example/SpringDataJpa/SpringDataJpaApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Clase03/SpringDataJpa/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Clase03/SpringDataJpa/src/test/java/com/example/SpringDataJpa/SpringDataJpaApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Clase03/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Clase03/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +15,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2kc6dN7GwItEO5gHrS8T9PLqStp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,7 +28,7 @@
     "Application.SpringDataJpaApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/juampa/Escritorio/OpenBootcamp/Curso_de_Spring",
+    "last_opened_file_path": "/home/juampa/Escritorio/prueba",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>

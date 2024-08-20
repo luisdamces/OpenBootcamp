@@ -12,6 +12,9 @@
 * <sg>Auto escaneo de beans</sg>
 * <sg>Annotations-based configuration for IoC Container</sg>
 
+## [Clase 03:](./Clase03/)
+* <sg>Spring JPA</sg>
+
 ---
 
 <style>

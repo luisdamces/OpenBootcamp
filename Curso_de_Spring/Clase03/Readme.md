@@ -4,6 +4,15 @@
 
 [!TODO]: # (Colocar la jerarquía desde JDBC hasta Spring Data JPA)
 
+<sg>Spring Data JPA trabaja sobre otras tecnologías, cuya jerarquía podemos ver a continuación:
+
+```
+Spring Data JPA
+└── JPA
+    └── Hibernate
+        └── JDBC
+```
+
 ### <sg>Configuración</sg>
 <sg>Desde [https://start.spring.io/](https://start.spring.io/) configuramos el proyecto
 de la siguiente forma:</sg>
@@ -31,7 +40,7 @@ será una **tabla** en la BBDD (en nuestro ejemplo es la clase **Coche**).</sg>
 definida con <y>@Entity</y>. Es importante señalar que hay un atributo especial que
 corresponde al índice de la tabla, el cuál también debe llevar **annotations** que le
 indiquen a Spring que es el índice. Este atributo debe ser de un **tipo objeto** porque
-debe aceptar como valor _null_. Generalmente es de tipo **Long**.</sg>
+debe poder aceptar como valor _null_. Generalmente es de tipo **Long**.</sg>
 
 <sg>Este es un ejemplo genérico de código:</sg>
 
