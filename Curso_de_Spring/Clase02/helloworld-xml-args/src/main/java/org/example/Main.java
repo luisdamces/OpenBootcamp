@@ -1,6 +1,6 @@
 package org.example;
 
-import org.springframework.context.ApplicationContext;
+// import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
@@ -9,8 +9,7 @@ public class Main {
 
         Thread.sleep(3000);
 
-        @SuppressWarnings("resource")
-        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
         Thread.sleep(3000);
 
@@ -28,10 +27,13 @@ public class Main {
         CustomerSupport customerSupport = (CustomerSupport) context.getBean("customerSupport");
 
         String appName = customerSupport.applicationName;
+
         // observar cómo desde el bean customerSupport
         // accedo a la función sayHello() del bean greeter
         String greetingCustomer = customerSupport.greeter.sayHello();
 
         System.out.printf("(%s): %s\n", appName, greetingCustomer);
+
+        context.close();
     }
 }

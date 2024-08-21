@@ -33,5 +33,9 @@ public class Main {
         String greetingCustomer = customerSupport.greeter.sayHello();
 
         System.out.printf("(%s): %s\n", appName, greetingCustomer);
+
+        // La clase ApplicationContext no tiene el método close(), por lo
+        // tanto tengo que hacer un "cast" a ClassPathXmlApplicationContext
+        ((ClassPathXmlApplicationContext) context).close();
     }
 }
