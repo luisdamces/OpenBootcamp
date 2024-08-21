@@ -2,8 +2,6 @@
 
 ## <sg>Spring Data JPA</sg>
 
-[!TODO]: # (Colocar la jerarquía desde JDBC hasta Spring Data JPA)
-
 <sg>Spring Data JPA trabaja sobre otras tecnologías, cuya jerarquía podemos ver a continuación:
 
 ```
