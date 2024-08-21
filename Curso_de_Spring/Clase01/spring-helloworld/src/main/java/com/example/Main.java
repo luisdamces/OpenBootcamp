@@ -19,7 +19,6 @@ public class Main {
         System.out.println("Cargando el contexto ...");
 
         // aquí se creará el objeto Greeter (instancia de clase)
-        @SuppressWarnings("resource")
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
         Thread.sleep(3000);
@@ -45,5 +44,9 @@ public class Main {
         Greeter greeter3 = new Greeter();
         String saludo3 = greeter3.sayHello();
         System.out.println(saludo3);
+
+        // La clase ApplicationContext no tiene el método close(), por lo
+        // tanto tengo que hacer un "cast" a ClassPathXmlApplicationContext
+        ((ClassPathXmlApplicationContext) context).close();
     }
 }

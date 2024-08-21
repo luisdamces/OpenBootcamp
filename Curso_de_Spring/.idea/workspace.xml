@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9bdb8971-5276-41df-b9e3-6bb776d6e626" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clase03/SpringDataJpa/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Clase03/SpringDataJpa/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +29,7 @@
     "Application.SpringDataJpaApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/juampa/Escritorio/prueba",
+    "last_opened_file_path": "/home/juampa/Escritorio/OpenBootcamp/Curso_de_Spring",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
