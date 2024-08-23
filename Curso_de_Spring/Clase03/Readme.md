@@ -89,7 +89,8 @@ public interface ClaseTablaBBDDRepository extends JpaRepository<ClaseTablaBBDD, 
 ```
 
 [IMPORTANTE]: # (Configurar Spring para que haga uso de una BBDD en el Disco
-                 y no en Memoria)
+                 y no en Memoria, h2, SQL, posgres, etc. Creo que lo pondré en
+                 directorios separados de las clases.)
 
 ---
 
