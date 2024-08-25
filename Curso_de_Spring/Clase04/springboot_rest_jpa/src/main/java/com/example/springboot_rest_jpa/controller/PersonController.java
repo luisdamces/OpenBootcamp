@@ -25,7 +25,15 @@ public class PersonController {
     // Methods //
     // Create
     @PostMapping("/api/v1/users")
-    public ResponseEntity<Person> create(@RequestBody Person person) {        
+    public ResponseEntity<Person> create(@RequestBody Person person) {
+        
+        // Ignoro el Id que pudiere venir en la petición
+        // (hay otras formas de gestionarlo, yo elijo ésta)
+        person.setId(null);
+
+        // Realmente no tiene sentido usar el try-catch ya que, aparentemente,
+        // Spring gestiona todo automáticamente, es decir, si uso este try-catch
+        // o no lo uso, el resultado operacional es exactamente el mismo.
         try {
              Person newPerson = repository.save(person);
              URI uri = URI.create("http://localhost:8080/api/v1/users/" + newPerson.getId());
@@ -81,7 +89,9 @@ public class PersonController {
     // Update
     @PutMapping("/api/v1/users/{id}")
     public ResponseEntity<Person> update(@PathVariable Long id, @RequestBody Person person) {
+
         if (repository.existsById(id)) {
+            // aquí se podría elegir qué campos cambiar y cuales no
             repository.save(new Person(
                     id,
                     person.getName(),
@@ -89,19 +99,22 @@ public class PersonController {
                     person.getRegistration(),
                     person.getBlocked()
             ));
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.badRequest().build();
+
+            return ResponseEntity.status(204).build();
         }
+
+        return ResponseEntity.badRequest().build();
     }
 
     // Delete
     @DeleteMapping("/api/v1/users/{id}")
     public ResponseEntity<Person> delete(@PathVariable Long id) {
+
         if (repository.existsById(id)) {
             repository.deleteById(id);
             return ResponseEntity.status(204).build();
         }
+        
         return ResponseEntity.badRequest().build();
     }
 }
