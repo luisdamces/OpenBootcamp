@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/Clase01/spring-helloworld/pom.xml" />
         <option value="$PROJECT_DIR$/Clase02/helloworld-xml-args/pom.xml" />
         <option value="$PROJECT_DIR$/Clase02/helloworld-annotations/pom.xml" />
+        <option value="$PROJECT_DIR$/Clase04/springboot_rest_jpa/pom.xml" />
       </list>
     </option>
   </component>

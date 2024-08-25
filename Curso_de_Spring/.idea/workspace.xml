@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9bdb8971-5276-41df-b9e3-6bb776d6e626" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Clase03/SpringDataJpa/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Clase03/SpringDataJpa/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clase04/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Clase04/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -27,19 +34,20 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.SpringDataJpaApplication.executor": "Run",
+    "Application.SpringbootRestJpaApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/juampa/Escritorio/OpenBootcamp/Curso_de_Spring",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "last_opened_file_path": "/home/juampa/Escritorio/OpenBootcamp/Curso_de_Spring/Clase04/springboot_rest_jpa",
+    "settings.editor.selected.configurable": "project.propCompiler"
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="SpringDataJpaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.SpringDataJpa.SpringDataJpaApplication" />
-      <module name="SpringDataJpa" />
+    <configuration name="SpringbootRestJpaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.springboot_rest_jpa.SpringbootRestJpaApplication" />
+      <module name="springboot_rest_jpa" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.SpringDataJpa.*" />
+          <option name="PATTERN" value="com.example.springboot_rest_jpa.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -49,7 +57,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SpringDataJpaApplication" />
+        <item itemvalue="Application.SpringbootRestJpaApplication" />
       </list>
     </recent_temporary>
   </component>
