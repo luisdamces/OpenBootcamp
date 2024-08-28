@@ -1,14 +1,19 @@
 package com.example.springboot_rest_jpa.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.springboot_rest_jpa.entity.Person;
 import com.example.springboot_rest_jpa.repository.PersonRepository;
 
 import java.net.URI;
+import java.net.http.HttpHeaders;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 
 @RestController
@@ -16,6 +21,7 @@ public class PersonController {
 
     // Attributes
     PersonRepository repository;
+    Logger logger = LoggerFactory.getLogger(PersonController.class);
 
     // Constructor (obtener el repository a través del constructor facilita el testing)
     public PersonController(PersonRepository repository) {
@@ -23,12 +29,18 @@ public class PersonController {
     }
 
     // Methods //
+    // User Agent Detect (UAD)
+    @PostMapping("/api/v1/uad")
+    public String getUserAgent(@RequestHeader HttpHeaders header) {
+        return header.getClass().getName();
+    }
+
     // Create
     @PostMapping("/api/v1/users")
     public ResponseEntity<Person> create(@RequestBody Person person) {
         
         // Ignoro el Id que pudiere venir en la petición
-        // (hay otras formas de gestionarlo, yo elijo ésta)
+        // (hay otras formas de gestionarlo, yo elijo esta)
         person.setId(null);
 
         // Realmente no tiene sentido usar el try-catch ya que, aparentemente,
@@ -36,6 +48,8 @@ public class PersonController {
         // o no lo uso, el resultado operacional es exactamente el mismo.
         try {
              Person newPerson = repository.save(person);
+             logger.info("Se agregó un nuevo usuario a la BBDD");
+
              URI uri = URI.create("http://localhost:8080/api/v1/users/" + newPerson.getId());
              return ResponseEntity
                      .created(uri)
@@ -63,7 +77,11 @@ public class PersonController {
         return repository
             .findById(id)
             .map(ResponseEntity::ok)
-            .orElse(ResponseEntity.badRequest().build())
+//            .orElse(ResponseEntity.badRequest().build())
+            .orElseGet(() -> {
+                    logger.warn("El usuario no existe");
+                    return ResponseEntity.badRequest().build();
+            })
         ;
 
         // Optional<Person> personOpt = repository.findById(id); 
@@ -91,7 +109,8 @@ public class PersonController {
     public ResponseEntity<Person> update(@PathVariable Long id, @RequestBody Person person) {
 
         if (repository.existsById(id)) {
-            // aquí se podría elegir qué campos cambiar y cuales no
+            // aquí se podría elegir qué campos cambiar y cuáles no
+            // otra opción para actualizar los cambios sería usar los setters del "user"
             repository.save(new Person(
                     id,
                     person.getName(),
@@ -100,9 +119,11 @@ public class PersonController {
                     person.getBlocked()
             ));
 
+            logger.info("Se ha actualizado un usuario");
             return ResponseEntity.status(204).build();
         }
 
+        logger.warn("Hubo un error intentando actualizar un usuario inexistente");
         return ResponseEntity.badRequest().build();
     }
 
@@ -112,9 +133,11 @@ public class PersonController {
 
         if (repository.existsById(id)) {
             repository.deleteById(id);
+            logger.info("¡Un usuario fue borrado!");
             return ResponseEntity.status(204).build();
         }
-        
+
+        logger.warn("Error intentando borrar un usuario inexistente");
         return ResponseEntity.badRequest().build();
     }
 }

@@ -13,7 +13,11 @@
 * <sg>Annotations-based configuration for IoC Container</sg>
 
 ## [Clase 03:](./Clase03/)
-* <sg>Spring JPA</sg>
+* <sg>Spring Data JPA</sg>
+
+## [Clase 04:](./Clase04/)
+* <sg>Spring Boot</sg>
+* <sg>Introducción a API REST</sg>
 
 ---
 
