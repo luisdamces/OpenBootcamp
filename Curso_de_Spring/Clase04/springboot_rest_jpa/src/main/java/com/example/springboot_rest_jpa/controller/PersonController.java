@@ -104,6 +104,18 @@ public class PersonController {
                 ;
     }
 
+    // 4. Blocked Users
+    @GetMapping("/api/v1/users/blocked")
+    public List<Person> getBlockedUsers() {
+        return repository
+                .findAll()
+                .stream()
+                .filter(user -> user.getBlocked() == true)
+                .toList()
+        ;
+
+    }
+
     // Update
     @PutMapping("/api/v1/users/{id}")
     public ResponseEntity<Person> update(@PathVariable Long id, @RequestBody Person person) {
