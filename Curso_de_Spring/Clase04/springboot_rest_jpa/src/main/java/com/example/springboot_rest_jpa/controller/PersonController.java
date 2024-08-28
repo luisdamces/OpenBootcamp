@@ -8,9 +8,10 @@ import com.example.springboot_rest_jpa.entity.Person;
 import com.example.springboot_rest_jpa.repository.PersonRepository;
 
 import java.net.URI;
-import java.net.http.HttpHeaders;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -29,12 +30,6 @@ public class PersonController {
     }
 
     // Methods //
-    // User Agent Detect (UAD)
-    @PostMapping("/api/v1/uad")
-    public String getUserAgent(@RequestHeader HttpHeaders header) {
-        return header.getClass().getName();
-    }
-
     // Create
     @PostMapping("/api/v1/users")
     public ResponseEntity<Person> create(@RequestBody Person person) {
@@ -99,7 +94,7 @@ public class PersonController {
         return repository
                 .findAll()
                 .stream()
-                .filter(p -> p.getName().equals(name))
+                .filter(user -> user.getName().equals(name))
                 .toList()
                 ;
     }
