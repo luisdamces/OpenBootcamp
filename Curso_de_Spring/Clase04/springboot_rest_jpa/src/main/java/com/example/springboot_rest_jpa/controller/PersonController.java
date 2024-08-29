@@ -9,20 +9,17 @@ import com.example.springboot_rest_jpa.repository.PersonRepository;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Map;
 
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-
 
 
 @RestController
 public class PersonController {
 
     // Attributes
-    PersonRepository repository;
-    Logger logger = LoggerFactory.getLogger(PersonController.class);
+    private PersonRepository repository;
+    private final Logger logger = LoggerFactory.getLogger(PersonController.class);
 
     // Constructor (obtener el repository a través del constructor facilita el testing)
     public PersonController(PersonRepository repository) {
@@ -116,8 +113,8 @@ public class PersonController {
     public ResponseEntity<Person> update(@PathVariable Long id, @RequestBody Person person) {
 
         if (repository.existsById(id)) {
-            // aquí se podría elegir qué campos cambiar y cuáles no
-            // otra opción para actualizar los cambios sería usar los setters del "user"
+            // aquí se podría elegir qué campos cambiar y cuáles no usando los
+            // setters del objeto "user", para lo cuál habría que recuperarlo.
             repository.save(new Person(
                     id,
                     person.getName(),
