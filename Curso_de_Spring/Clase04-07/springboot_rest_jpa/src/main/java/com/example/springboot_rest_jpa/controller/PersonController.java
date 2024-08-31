@@ -11,14 +11,14 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 
 
 @RestController
+@SuppressWarnings("unused")
 public class PersonController {
 
     // Attributes
-    private PersonRepository repository;
+    private final PersonRepository repository;
     private final Logger logger = LoggerFactory.getLogger(PersonController.class);
 
     // Constructor (obtener el repository a través del constructor facilita el testing)
@@ -30,8 +30,8 @@ public class PersonController {
     // Create
     @PostMapping("/api/v1/users")
     public ResponseEntity<Person> create(@RequestBody Person person) {
-        
-        // Ignoro el Id que pudiere venir en la petición
+
+        // Decido ignorar el Id que pudiere venir en la petición
         // (hay otras formas de gestionarlo, yo elijo esta)
         person.setId(null);
 
@@ -39,52 +39,53 @@ public class PersonController {
         // Spring gestiona todo automáticamente, es decir, si uso este try-catch
         // o no lo uso, el resultado operacional es exactamente el mismo.
         try {
-             Person newPerson = repository.save(person);
-             logger.info("Se agregó un nuevo usuario a la BBDD");
+            Person newPerson = repository.save(person);
+            logger.info("Se agregó un nuevo usuario a la BBDD");
 
-             URI uri = URI.create("http://localhost:8080/api/v1/users/" + newPerson.getId());
-             return ResponseEntity
-                     .created(uri)
-                     .body(newPerson)
-                     ;
+            URI uri = URI.create("http://localhost:8080/api/v1/users/" + newPerson.getId());
+            return ResponseEntity
+                    .created(uri)
+                    .body(newPerson)
+                    ;
 
             // return ResponseEntity.ok(repository.save(person));
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return ResponseEntity.badRequest().build();
+            logger.error("¡Error tratando de crear un nuevo usuario!", e);
+            return ResponseEntity.notFound().build();
         }
     }
-    
+
     // Recovery
     // 1. ALL users
     @GetMapping("/api/v1/users")
     public List<Person> findAll() {
         return repository.findAll();
     }
-    
+
     // 2. One User by Id
     @GetMapping("/api/v1/users/{id}")
     public ResponseEntity<Person> findById(@PathVariable Long id) {
         return repository
-            .findById(id)
-            .map(ResponseEntity::ok)
+                .findById(id)
+                .map(ResponseEntity::ok)
 //            .orElse(ResponseEntity.badRequest().build())
-            .orElseGet(() -> {
+                .orElseGet(() -> {
                     logger.warn("El usuario no existe");
                     return ResponseEntity.badRequest().build();
-            })
-        ;
+                })
+                ;
 
-        // Optional<Person> personOpt = repository.findById(id); 
+        // Optional<Person> personOpt = repository.findById(id);
 
         // if (personOpt.isEmpty()) {
+        //     logger.warn("El usuario no existe");
         //     return ResponseEntity.badRequest().build();
         // }
-        
+
         // return ResponseEntity.ok(personOpt.get());
     }
-    
+
     // 3. Users by Name
     @GetMapping("/api/v1/users/by-name/{name}")
     public List<Person> findByName(@PathVariable String name) {
@@ -102,9 +103,9 @@ public class PersonController {
         return repository
                 .findAll()
                 .stream()
-                .filter(user -> user.getBlocked() == true)
+                .filter(Person::getBlocked)
                 .toList()
-        ;
+                ;
 
     }
 
@@ -114,7 +115,7 @@ public class PersonController {
 
         if (repository.existsById(id)) {
             // aquí se podría elegir qué campos cambiar y cuáles no usando los
-            // setters del objeto "user", para lo cuál habría que recuperarlo.
+            // setters del objeto "user", para lo cual habría que recuperarlo.
             repository.save(new Person(
                     id,
                     person.getName(),
@@ -135,13 +136,26 @@ public class PersonController {
     @DeleteMapping("/api/v1/users/{id}")
     public ResponseEntity<Person> delete(@PathVariable Long id) {
 
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-            logger.info("¡Un usuario fue borrado!");
-            return ResponseEntity.status(204).build();
+        // Estructuras de guarda
+        if (id == null) {
+            logger.warn("User Id nulo");
+            return ResponseEntity.badRequest().build();
+        }
+        if (repository.findById(id).isEmpty()) {
+            logger.warn("User Id inexistente");
+            return ResponseEntity.notFound().build();
         }
 
-        logger.warn("Error intentando borrar un usuario inexistente");
-        return ResponseEntity.badRequest().build();
+        try {
+            repository.deleteById(id);
+            logger.info("¡Un usuario fue borrado!");
+//             return ResponseEntity.status(204).build();
+            return ResponseEntity.noContent().build(); // otra forma de devolver un "Status Code 204"
+        } catch (Exception e) {
+            logger.error("Error borrando usuario", e);
+            return ResponseEntity.notFound().build();
+        }
+
     }
 }
+

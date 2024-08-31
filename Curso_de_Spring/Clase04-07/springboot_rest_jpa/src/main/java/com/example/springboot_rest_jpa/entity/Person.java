@@ -11,6 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="Users")
+@SuppressWarnings("unused")
 public class Person {
 
     // Attributes <==> Columns DDBB

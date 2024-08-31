@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@SuppressWarnings("unused")
 public class HeadersController {
 
     // User Agent Detect v1 (UAD)
@@ -22,7 +23,7 @@ public class HeadersController {
     public List<String> getUserAgent2(@RequestHeader HttpHeaders headers) {
         return headers.get("user-agent");
     }
-    
+
     // Get all header
     @GetMapping("/headers")
     public Map<String,String> getHeader(@RequestHeader Map<String,String> header) {

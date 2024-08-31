@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 // Un ejemplo con las "annotations" de Spring MVC
 @Controller
+@SuppressWarnings("unused")
 public class HelloController {
 
     @GetMapping("/hello")
