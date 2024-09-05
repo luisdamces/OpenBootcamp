@@ -6,7 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SpringDataJpa" />
         <module name="springboot_rest_jpa" />
       </profile>
     </annotationProcessing>
@@ -14,6 +13,7 @@
       <module name="helloworld-annotations" target="21" />
       <module name="helloworld-xml-args" target="21" />
       <module name="spring-helloworld" target="21" />
+      <module name="SpringDataJpa" target="21" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
